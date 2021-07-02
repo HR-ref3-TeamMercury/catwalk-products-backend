@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const parser = require('body-parser');
 const app = express();
@@ -11,7 +12,7 @@ app.use(parser.json());
 app.get('/getProducts', function (req, res) {
   query.getProducts()
     .then((data) => {
-      console.log('we got the data from the database', data)
+
       res.send(data)
     })
     .catch((error) => {
@@ -37,6 +38,7 @@ app.get('/getProducts', function (req, res) {
       })
   });
 
+
 app.get('/getProductInformation', function (req, res) {
   var productInfo = null;
   var currProductId = null;
@@ -47,7 +49,6 @@ app.get('/getProductInformation', function (req, res) {
   return query.getFeatures(currProductId)
   })
     .then((feats) => {
-      console.log('here is feat and prod', productInfo, feats)
 
       var fullProduct = {
         'id': productInfo[0]['id'],
