@@ -25,9 +25,9 @@ var getFeatures = (prodId) => {
 
 
 var getStyles = () => {
-  return pq('SELECT * FROM styles WHERE product_id = ?', ['18098'])
+  return pq('SELECT * FROM styles WHERE product_id = ?', ['19089'])
 };
-
+// first on actual product id
 var getPhotos = (styleIds) => {
   var styleMarks = '';
   for (var i = 0; i < styleIds.length; i++) {
@@ -39,6 +39,7 @@ var getPhotos = (styleIds) => {
   }
   return pq('SELECT * FROM photos WHERE style_id in ('+ styleMarks+ ')', styleIds);
 };
+// put index on where photo and style id link up
 
 var getSkus = (styleIds) => {
   var styleMarks = '';

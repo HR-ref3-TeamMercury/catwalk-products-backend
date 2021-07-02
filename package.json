@@ -23,6 +23,10 @@
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
+    "newrelic": "^7.5.1",
     "nodemon": "^2.0.7"
+  },
+  "devDependencies": {
+    "artillery": "^1.7.4"
   }
 }
